@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="profileContainer">
+        <h3>Добро пожаловать!</h3>
+
+        <img src="{{ profile.image.url }}" alt="Profile Image" id="avatar">
+        <h2><strong>{{ user.username }}</strong></h2>
+        <br>
+        <p>Почта: {{ user.email }}</p>
+        <p>Дата регистрации: {{ profile.created_on.date}}</p>
+        <p>Оставлено отзывов: {{ profile.reviews }}</p>
+        <br>
+        <div class="about">
+            <p>О себе:</p>
+            <p> {{ profile.about }}</p>
+        </div>
+        <button class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom" onclick="edit()">
+            Изменить профиль
+        </button>
+    </div>
+    <script>
+    function edit() {
+        window.location.href = window.location.href + 'edit/';
+    }
+    </script>
+{% endblock content %}
+

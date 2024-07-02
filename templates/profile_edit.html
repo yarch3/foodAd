@@ -1,0 +1,23 @@
+    {% extends "base.html" %}
+    {% block content %}
+
+    <div class="profileContainer">
+        <h3>Редактирование профиля</h3>
+        <form id='editProfile' method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <img src="{{ profile.image.url }}" alt="Profile Image" id="avatar">
+            {{ form.as_table}}
+            <br>
+            <button type='submit' class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                Save
+            </button>
+        </form>
+        <h2><strong>{{ user.username }}</strong></h2>
+        <br>
+        <p>Почта: {{ user.email }}</p>
+        <p>Дата регистрации: {{ profile.created_on.date}}</p>
+        <p>Оставлено отзывов: {{ profile.reviews }}</p>
+
+    </div>
+    {% endblock %}
+

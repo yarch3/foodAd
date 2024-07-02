@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 id="regHead">Авторизация</h1>
+    <form id="form1" name="authorisation" action="" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+        {{ form.as_div  }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-outline-success" id = "enter" >Войти</button>
+        </div>
+        </form>
+
+   <script>
+        document.getElementById("enter").addEventListener("click", function() {
+            var msg = "{{message}}";
+            alert(msg);
+
+        });
+
+    </script>
+
+
+{% endblock %}
